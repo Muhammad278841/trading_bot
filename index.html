@@ -1,1 +1,151 @@
+👑, [03.09.2025 3:09]
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KitsTracker</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #4CAF50;
+      text-align: center;
+    }
+    .chart-container {
+      background: #1e1e1e;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .orders {
+      background: #1e1e1e;
+      padding: 15px;
+      border-radius: 10px;
+      font-family: monospace;
+    }
+    .green { color: #4CAF50; }
+    .red { color: #F44336; }
+    .explanation {
+      margin-top: 20px;
+      padding: 15px;
+      background: #2a2a2a;
+      border-radius: 10px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🐳 KitsTracker — Крупные сделки в реальном времени</h1>
 
+    <div class="chart-container">
+      <canvas id="priceChart"></canvas>
+    </div>
+
+    <div class="orders" id="ordersList">
+      <strong>Крупные сделки (>$100K):</strong><br/>
+      <span class="green">🟢 BY-F 1.1M $207.00</span> — Кит купил<br/>
+      <span class="red">🔴 BI-F 900K $202.00</span> — Кит продал<br/>
+      <span class="green">🟢 OK-S 1.8M $198.00</span> — Кит купил<br/>
+    </div>
+
+    <div class="explanation">
+      <strong>Как использовать:</strong><br/>
+      • <span class="green">Зелёные</span> = поддержка → цена может отскочить вверх<br/>
+      • <span class="red">Красные</span> = сопротивление → цена может упасть<br/>
+      • Если цена касается уровня — жди подтверждения (объём, свеча)<br/>
+      • Всегда ставь стоп-лосс!
+    </div>
+  </div>
+
+  <script>
+    // Пример данных для графика (SOLUSDT)
+    const prices = [200, 202, 198, 205, 203, 210, 208, 213, 211, 214];
+    const labels = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '18:45'];
+
+    const ctx = document.getElementById('priceChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+       {
+        labels: labels,
+        datasets: [{
+          label: 'SOL/USDT',
+          data: prices,
+          borderColor: '#4CAF50',
+          backgroundColor: 'rgba(76, 175, 80, 0.1)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+
+👑, [03.09.2025 3:48]
+<span className="text-white font-semibold">24</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-300">Win Rate</span>
+                  <span className="text-green-400 font-semibold">78%</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-300">Active Alerts</span>
+                  <span className="text-purple-400 font-semibold">12</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-300">Avg. Confidence</span>
+                  <span className="text-white font-semibold">82%</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Settings */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <h3 className="text-xl font-bold text-white mb-4">Settings</h3>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-300">Price Alerts</span>
+                  <button className="w-12 h-6 bg-green-500 rounded-full relative">
+                    <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5"></div>
+                  </button>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-300">Signal Notifications</span>
+                  <button className="w-12 h-6 bg-green-500 rounded-full relative">
+                    <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5"></div>
+                  </button>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-300">Email Reports</span>
+                  <button className="w-12 h-6 bg-gray-500 rounded-full relative">
+                    <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5"></div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
